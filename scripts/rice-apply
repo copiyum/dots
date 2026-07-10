@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+INSTALL_DEPS=0
+START_SERVICES=1
+
+usage() {
+  cat <<'EOF'
+Usage:
+  scripts/rice-apply [--install-deps] [--no-start] <white|black>
+
+Applies the macOS rice with backups:
+  - AeroSpace tiling config
+  - SketchyBar full bar config
+  - JankyBorders config
+  - Ghostty theme/config block
+  - iTerm2 Dynamic Profile
+  - Oh My Posh theme
+  - managed Zsh snippet, without editing ~/.zshrc
+
+Examples:
+  scripts/rice-apply black
+  scripts/rice-apply --install-deps white
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --install-deps)
+      INSTALL_DEPS=1
+      shift
+      ;;
+    --no-start)
+      START_SERVICES=0
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      THEME="${1:-}"
+      shift
+      ;;
+  esac
+done
+
+THEME="${THEME:-}"
+if [[ -z "$THEME" ]]; then
+  usage
+  exit 1
+fi
+
+case "$THEME" in
+  white|black) ;;
+  *)
+    printf 'Unknown theme: %s\n' "$THEME" >&2
+    printf 'Available themes: white, black\n' >&2
+    exit 1
+    ;;
+esac
+
+if [[ "$INSTALL_DEPS" -eq 1 ]]; then
+  brew bundle install --no-upgrade --file "$ROOT/Brewfile"
+fi
+
+"$ROOT/scripts/rice-theme" --apply "$THEME"
+
+if [[ "$START_SERVICES" -eq 1 ]]; then
+  "$HOME/.config/macos-rice/services/start.sh" || true
+fi
+
+if [[ -f "$HOME/.zshrc" ]] && grep -Fq 'macos-rice/rice.zsh' "$HOME/.zshrc"; then
+  zsh_status="Your ~/.zshrc already sources ~/.config/macos-rice/rice.zsh."
+else
+  zsh_status="To enable the prompt/snippet persistently after reviewing, add:
+  source ~/.config/macos-rice/rice.zsh"
+fi
+
+cat <<EOF
+
+macOS rice applied: $THEME
+
+Zsh was not edited by this script.
+$zsh_status
+
+Open a new Ghostty/iTerm window, or restart the terminal app, to pick up
+the generated terminal profile in new sessions.
+
+Backups are under:
+  ~/.backup/macos-rice/
+EOF

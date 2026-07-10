@@ -1,0 +1,16 @@
+# Preview config. Copy or include this only after review.
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12
+theme = rice-black
+cursor-style = block
+cursor-style-blink = true
+background = #1A1A1A
+foreground = #CCCCCC
+cursor-color = #F5F5F5
+selection-background = #474747
+selection-foreground = #F5F5F5
+window-padding-x = 30
+window-padding-y = 30
+background-opacity = 1
+background-blur-radius = 0
+macos-titlebar-style = tabs

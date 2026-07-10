@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+source "$CONFIG_DIR/rice/colors.sh"
+
+PLUGIN_DIR="$CONFIG_DIR/rice/plugins"
+SCRIPT_DIR="$CONFIG_DIR/rice/scripts"
+
+sketchybar --bar \
+  position=top \
+  topmost=on \
+  height=34 \
+  margin=0 \
+  y_offset=3 \
+  sticky=on \
+  padding_left=10 \
+  padding_right=10 \
+  color=0x00000000 \
+  shadow=off
+
+sketchybar --default \
+  updates=when_shown \
+  icon.font="$RICE_FONT:Medium:12.5" \
+  icon.color="$BEO_PILL_FG" \
+  icon.padding_left=8 \
+  icon.padding_right=8 \
+  icon.y_offset=0 \
+  label.font="$RICE_FONT:Medium:12.5" \
+  label.color="$BEO_PILL_FG" \
+  label.padding_left=6 \
+  label.padding_right=8 \
+  label.y_offset=0 \
+  padding_left=5 \
+  padding_right=5 \
+  background.height=28 \
+  background.corner_radius=14 \
+  background.color="$BEO_PILL_BG"
+
+sketchybar --add event aerospace_workspace_change
+
+"$CONFIG_DIR/rice/workspaces.sh"
+
+sketchybar --add item rice.network right \
+  --set rice.network \
+    icon.drawing=off \
+    label="--/--" \
+    label.color="$BEO_PILL_FG" \
+    label.padding_left=10 \
+    label.padding_right=10 \
+    padding_left=7 \
+    padding_right=7 \
+    background.color="$BEO_GRAPH_BG" \
+    background.height=28 \
+    background.corner_radius=14 \
+    update_freq=2 \
+    script="$PLUGIN_DIR/network.sh" \
+    click_script="$SCRIPT_DIR/wifi-control.sh"
+
+sketchybar --add item rice.bluetooth right \
+  --set rice.bluetooth \
+    icon="" \
+    icon.font="$RICE_FONT:Bold:12.0" \
+    icon.padding_left=10 \
+    icon.padding_right=10 \
+    label.drawing=off \
+    padding_left=7 \
+    padding_right=7 \
+    background.color="$BEO_PILL_BG" \
+    background.height=28 \
+    background.corner_radius=14 \
+    update_freq=10 \
+    script="$PLUGIN_DIR/bluetooth.sh" \
+    click_script="$SCRIPT_DIR/bluetooth-control.sh"
+
+sketchybar --add item rice.battery right \
+  --set rice.battery \
+    icon.drawing=off \
+    icon.font="$RICE_FONT:Bold:12.0" \
+    icon.color="$BEO_ACTIVE_FG" \
+    label="--" \
+    label.color="$BEO_ACTIVE_FG" \
+    label.padding_left=12 \
+    label.padding_right=12 \
+    padding_left=7 \
+    padding_right=7 \
+    background.color="$BEO_ACTIVE_BG" \
+    background.height=28 \
+    background.corner_radius=14 \
+    update_freq=30 \
+    script="$PLUGIN_DIR/battery.sh" \
+    click_script="$SCRIPT_DIR/battery-mode-control.sh" \
+  --subscribe rice.battery power_source_change
+
+sketchybar --add item rice.date right \
+  --set rice.date \
+    icon.drawing=off \
+    label="$(date '+%a %e %b')" \
+    label.color="$BEO_PILL_FG" \
+    label.padding_left=12 \
+    label.padding_right=12 \
+    padding_left=7 \
+    padding_right=7 \
+    background.color="$BEO_PILL_BG" \
+    background.height=28 \
+    background.corner_radius=14 \
+    update_freq=30 \
+    script='sketchybar --set "$NAME" label="$(date "+%a %e %b")"'
+
+sketchybar --add item rice.clock right \
+  --set rice.clock \
+    icon.drawing=off \
+    label="$(date '+%H:%M')" \
+    label.color="$BEO_PILL_FG" \
+    label.padding_left=12 \
+    label.padding_right=12 \
+    padding_left=7 \
+    padding_right=7 \
+    background.color="$BEO_PILL_BG" \
+    background.height=28 \
+    background.corner_radius=14 \
+    update_freq=10 \
+    script='sketchybar --set "$NAME" label="$(date "+%H:%M")"'
+
+sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE="$(aerospace list-workspaces --focused 2>/dev/null || printf 1)"
+sketchybar --update

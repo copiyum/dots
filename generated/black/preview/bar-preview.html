@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>macOS Rice Black Preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #1A1A1A;
+      color: #CCCCCC;
+      font-family: "JetBrainsMono Nerd Font", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .desktop {
+      min-height: 100vh;
+      padding: 3px 4px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), transparent 34%),
+        #1A1A1A;
+    }
+    .bar {
+      height: 34px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .left, .right, .center {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      min-width: 0;
+    }
+    .center {
+      justify-content: center;
+    }
+    .seg {
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 6px;
+      color: #CCCCCC;
+      background: #333333;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .seg.dark {
+      background: #1A1A1A;
+    }
+    .spaces {
+      gap: 0;
+      padding: 0 8px;
+    }
+    .dot {
+      width: 14px;
+      text-align: center;
+      font-size: 16px;
+      color: #555555;
+    }
+    .dot.active {
+      color: #F5F5F5;
+    }
+    .title {
+      max-width: min(44vw, 620px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      justify-content: center;
+      color: #CCCCCC;
+    }
+    .terminal {
+      margin-top: 72px;
+      width: min(860px, 100%);
+      min-height: 240px;
+      background: #1A1A1A;
+      color: #CCCCCC;
+      border: 5px solid #CCCCCC;
+      padding: 30px;
+      font-size: 15px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.18);
+    }
+    .prompt {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .p-left { color: #333333; }
+    .p-user { color: #CCCCCC; background: #333333; }
+    .p-cut-1 { color: #333333; background: #474747; }
+    .p-dir { color: #CCCCCC; background: #474747; padding: 0 4px; }
+    .p-cut-2 { color: #474747; background: #474747; }
+    .p-git { color: #CCCCCC; background: #474747; padding: 0 4px; }
+    .p-final { color: #474747; }
+  </style>
+</head>
+<body>
+  <main class="desktop">
+    <section class="bar" aria-label="macOS rice bar preview">
+      <div class="left">
+        <span class="seg dark">1&nbsp;󰖟</span>
+        <span class="seg">2&nbsp;󱞁&nbsp;&nbsp;󰨞&nbsp;&nbsp;&gt;_</span>
+        <span class="seg">3&nbsp;</span>
+        <span class="seg">4&nbsp;󰖟</span>
+        <span class="seg">5</span>
+        <span class="seg">6</span>
+        <span class="seg">7</span>
+        <span class="seg">8</span>
+        <span class="seg">9</span>
+        <span class="seg">10</span>
+      </div>
+      <div class="center">
+      </div>
+      <div class="right">
+        <span class="seg">󰖩</span>
+        <span class="seg">󰂯</span>
+        <span class="seg">󰃠</span>
+        <span class="seg">&nbsp; 42%</span>
+        <span class="seg">&nbsp; 93%</span>
+        <span class="seg">󰾇&nbsp; H</span>
+        <span class="seg dark">&nbsp; 09:41 PM</span>
+      </div>
+    </section>
+
+    <section class="terminal" aria-label="macOS rice terminal prompt preview">
+      <div class="prompt">
+        <span class="p-left"></span><span class="p-user"> </span><span class="p-cut-1"></span><span class="p-dir">  ~/rice </span><span class="p-cut-2"></span><span class="p-git">  main ⇡1 </span><span class="p-final"></span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

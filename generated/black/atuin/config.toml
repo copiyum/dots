@@ -1,0 +1,48 @@
+# Managed by macos-rice.
+# Press ? at an empty prompt for Atuin AI. Ctrl-r opens history search.
+
+auto_sync = false
+update_check = false
+sync_frequency = "10m"
+
+search_mode = "fuzzy"
+filter_mode = "workspace"
+workspaces = true
+
+style = "compact"
+inline_height = 24
+inline_height_shell_up_key_binding = 16
+show_preview = true
+max_preview_height = 5
+show_help = true
+show_tabs = true
+
+enter_accept = false
+secrets_filter = true
+history_filter = [
+  ".*--api-key[ =].*",
+  ".*--token[ =].*",
+  ".*--password[ =].*",
+  ".*OPENAI_API_KEY.*",
+  ".*ANTHROPIC_API_KEY.*",
+  ".*GITHUB_TOKEN.*",
+  ".*GH_TOKEN.*",
+]
+
+[search]
+filters = ["workspace", "directory", "session", "global"]
+
+[sync]
+records = true
+
+[daemon]
+enabled = false
+autostart = false
+
+[ui]
+columns = [
+  "duration",
+  "time",
+  { type = "directory", width = 26 },
+  "command",
+]

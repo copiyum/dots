@@ -1,0 +1,27 @@
+{
+  "theme": "black",
+  "mode": "dark",
+  "special": {
+    "background": "#1A1A1A",
+    "foreground": "#CCCCCC",
+    "cursor": "#F5F5F5"
+  },
+  "colors": {
+    "color0": "#1A1A1A",
+    "color1": "#B3B3B3",
+    "color2": "#999999",
+    "color3": "#808080",
+    "color4": "#CCCCCC",
+    "color5": "#AAAAAA",
+    "color6": "#666666",
+    "color7": "#E0E0E0",
+    "color8": "#333333",
+    "color9": "#CCCCCC",
+    "color10": "#B3B3B3",
+    "color11": "#F5F5F5",
+    "color12": "#F5F5F5",
+    "color13": "#999999",
+    "color14": "#AAAAAA",
+    "color15": "#FFFFFF"
+  }
+}

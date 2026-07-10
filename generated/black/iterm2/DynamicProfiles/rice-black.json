@@ -1,0 +1,39 @@
+{
+  "Profiles": [
+    {
+      "Guid": "31EA1F98-C556-4EF1-A82D-06CAE78BF0D6",
+      "Name": "macOS Rice Black",
+      "Normal Font": "JetBrainsMonoNFM-Regular 12",
+      "Non Ascii Font": "JetBrainsMonoNFM-Regular 12",
+      "Use Non-ASCII Font": true,
+      "Use Transparency": false,
+      "Transparency": 0,
+      "Blend": 0,
+      "Blur": false,
+      "Background Image Location": "",
+      "Unlimited Scrollback": true,
+      "Cursor Type": 2,
+      "Background Color": { "Red Component": 0.101961, "Green Component": 0.101961, "Blue Component": 0.101961, "Alpha Component": 1 },
+      "Foreground Color": { "Red Component": 0.800000, "Green Component": 0.800000, "Blue Component": 0.800000, "Alpha Component": 1 },
+      "Cursor Color": { "Red Component": 0.960784, "Green Component": 0.960784, "Blue Component": 0.960784, "Alpha Component": 1 },
+      "Selection Color": { "Red Component": 0.278431, "Green Component": 0.278431, "Blue Component": 0.278431, "Alpha Component": 1 },
+      "Selected Text Color": { "Red Component": 0.960784, "Green Component": 0.960784, "Blue Component": 0.960784, "Alpha Component": 1 },
+      "Ansi 0 Color": { "Red Component": 0.101961, "Green Component": 0.101961, "Blue Component": 0.101961, "Alpha Component": 1 },
+      "Ansi 1 Color": { "Red Component": 0.701961, "Green Component": 0.701961, "Blue Component": 0.701961, "Alpha Component": 1 },
+      "Ansi 2 Color": { "Red Component": 0.600000, "Green Component": 0.600000, "Blue Component": 0.600000, "Alpha Component": 1 },
+      "Ansi 3 Color": { "Red Component": 0.501961, "Green Component": 0.501961, "Blue Component": 0.501961, "Alpha Component": 1 },
+      "Ansi 4 Color": { "Red Component": 0.800000, "Green Component": 0.800000, "Blue Component": 0.800000, "Alpha Component": 1 },
+      "Ansi 5 Color": { "Red Component": 0.666667, "Green Component": 0.666667, "Blue Component": 0.666667, "Alpha Component": 1 },
+      "Ansi 6 Color": { "Red Component": 0.400000, "Green Component": 0.400000, "Blue Component": 0.400000, "Alpha Component": 1 },
+      "Ansi 7 Color": { "Red Component": 0.878431, "Green Component": 0.878431, "Blue Component": 0.878431, "Alpha Component": 1 },
+      "Ansi 8 Color": { "Red Component": 0.200000, "Green Component": 0.200000, "Blue Component": 0.200000, "Alpha Component": 1 },
+      "Ansi 9 Color": { "Red Component": 0.800000, "Green Component": 0.800000, "Blue Component": 0.800000, "Alpha Component": 1 },
+      "Ansi 10 Color": { "Red Component": 0.701961, "Green Component": 0.701961, "Blue Component": 0.701961, "Alpha Component": 1 },
+      "Ansi 11 Color": { "Red Component": 0.960784, "Green Component": 0.960784, "Blue Component": 0.960784, "Alpha Component": 1 },
+      "Ansi 12 Color": { "Red Component": 0.960784, "Green Component": 0.960784, "Blue Component": 0.960784, "Alpha Component": 1 },
+      "Ansi 13 Color": { "Red Component": 0.600000, "Green Component": 0.600000, "Blue Component": 0.600000, "Alpha Component": 1 },
+      "Ansi 14 Color": { "Red Component": 0.666667, "Green Component": 0.666667, "Blue Component": 0.666667, "Alpha Component": 1 },
+      "Ansi 15 Color": { "Red Component": 1.000000, "Green Component": 1.000000, "Blue Component": 1.000000, "Alpha Component": 1 }
+    }
+  ]
+}
